@@ -6,7 +6,7 @@
 /*   By: tpoungla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 20:39:19 by tpoungla          #+#    #+#             */
-/*   Updated: 2023/06/19 22:15:39 by tpoungla         ###   ########.fr       */
+/*   Updated: 2023/06/20 04:26:56 by tpoungla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_output(t_main *p)
 			else if (p->data.map[i][j] == 'E')
 				ft_put_pic(p, "pic/close.xpm", i * 32, j * 32);
 			if (i == p->player.x && j == p->player.y)
-				ft_put_pic(p, "pic/player.xpm", i * 32, j * 32);
+				ft_put_pic(p, "pic/playerdown.xpm", i * 32, j * 32);
 			j++;
 		}
 		i++;
@@ -73,7 +73,7 @@ void	exit_con(t_main *p)
 	}
 }
 
-void	ft_output_util(t_main *p, int n, int m)
+void	ft_output_util(t_main *p, int n, int m, int num)
 {
 	int		i;
 	int		j;
@@ -89,7 +89,7 @@ void	ft_output_util(t_main *p, int n, int m)
 			else if (i == p->player.x + n && j == p->player.y + m)
 				ft_put_pic(p, "pic/grass.xpm", i * 32, j * 32);
 			if (i == p->player.x && j == p->player.y)
-				ft_put_pic(p, "pic/player.xpm", i * 32, j * 32);
+				ft_putplayer(p, i, j, num);
 			j++;
 		}
 		i++;

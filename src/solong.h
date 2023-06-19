@@ -6,7 +6,7 @@
 /*   By: tpoungla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 20:40:27 by tpoungla          #+#    #+#             */
-/*   Updated: 2023/06/19 22:04:20 by tpoungla         ###   ########.fr       */
+/*   Updated: 2023/06/20 04:28:15 by tpoungla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,12 @@ void	ft_output(t_main	*p);
 void	check_move(int keycode, t_main *p);
 int		reach_collect(t_main *p, int	**visited);
 int		**check_visit(t_main *p);
-void	ft_output_util(t_main *p, int n, int m);
+void	ft_output_util(t_main *p, int n, int m, int num);
 void	ft_free_map(t_main *p);
 void	ft_free_vi(int **visited);
 void	ft_putexit(t_main *p, int n, int m);
 void	ft_put_pic(t_main *p, char *pic, int n, int m);
 void	ft_putwater(t_main *p, int n, int m);
+void	ft_putplayer(t_main *p, int n, int m, int num);
 
 #endif

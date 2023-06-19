@@ -6,12 +6,24 @@
 /*   By: tpoungla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:39:19 by tpoungla          #+#    #+#             */
-/*   Updated: 2023/06/20 03:46:56 by tpoungla         ###   ########.fr       */
+/*   Updated: 2023/06/20 04:30:38 by tpoungla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "solong.h"
+
+void	ft_putplayer(t_main *p, int n, int m, int num)
+{
+	if (num == 1)
+		ft_put_pic(p, "pic/playerup.xpm", n * 32, m * 32);
+	else if (num == 2)
+		ft_put_pic(p, "pic/playerleft.xpm", n * 32, m * 32);
+	else if (num == 3)
+		ft_put_pic(p, "pic/playerdown.xpm", n * 32, m * 32);
+	else if (num == 4)
+		ft_put_pic(p, "pic/playerright.xpm", n * 32, m * 32);
+}
 
 void	ft_putwater(t_main *p, int n, int m)
 {

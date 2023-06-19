@@ -6,7 +6,7 @@
 /*   By: tpoungla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 21:49:26 by tpoungla          #+#    #+#             */
-/*   Updated: 2023/06/19 00:00:52 by tpoungla         ###   ########.fr       */
+/*   Updated: 2023/06/20 04:27:29 by tpoungla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_go_up(t_main *p)
 			p->data.map[p->player.x][p->player.y] = '0';
 		}
 		p->move_count++;
-		ft_output_util(p, 1, 0);
+		ft_output_util(p, 1, 0, 1);
 	}
 }
 
@@ -40,7 +40,7 @@ void	ft_go_down(t_main *p)
 			p->data.map[p->player.x][p->player.y] = '0';
 		}
 		p->move_count++;
-		ft_output_util(p, -1, 0);
+		ft_output_util(p, -1, 0, 3);
 	}
 }
 
@@ -56,7 +56,7 @@ void	ft_go_left(t_main *p)
 			p->data.map[p->player.x][p->player.y] = '0';
 		}
 		p->move_count++;
-		ft_output_util(p, 0, 1);
+		ft_output_util(p, 0, 1, 2);
 	}
 }
 
@@ -72,7 +72,7 @@ void	ft_go_right(t_main *p)
 			p->data.map[p->player.x][p->player.y] = '0';
 		}
 		p->move_count++;
-		ft_output_util(p, 0, -1);
+		ft_output_util(p, 0, -1, 4);
 	}
 }
 
