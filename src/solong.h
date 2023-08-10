@@ -6,7 +6,7 @@
 /*   By: tpoungla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 20:40:27 by tpoungla          #+#    #+#             */
-/*   Updated: 2023/06/20 04:28:15 by tpoungla         ###   ########.fr       */
+/*   Updated: 2023/08/10 17:32:56 by tpoungla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "../printf/ft_printf.h"
 # include <unistd.h>
 # include <fcntl.h>
-//# include <stdlib.h>
 
 typedef struct s_vector
 {
@@ -71,33 +70,57 @@ typedef struct s_data {
 # define MAP_UNR_COL "can't reach collectable\n"
 # define MAP_NAME_BER "map's name didn't ends with '.ber\n"
 
-int		valid_char(char c);
-int		*valid_component(t_main *p, int *num);
-int		valid_wall(t_main *p);
-int		get_map_size(t_main *p, char *str);
-void	get_map_data(t_main *p, char *str);
-int		*init_array(int *num, int len);
-int		com_num_check(t_main *p, int *num);
+//get_map.c
 void	get_player_pos(t_main *p);
 void	get_exit_pos(t_main *p);
-int		check_list(t_main *p, int *num);
-int		ft_strlen_no_line(const char *s);
-int		valid_path(t_main *p, int	**visited);
-void	valid_path_util(t_main *p, int x, int y, int **visited);
-void	windowinit(t_main	*p);
-int		mlx_close(void *ptr);
+void	close_fd(int fd, t_main *p, int h, int w);
+int		get_map_size(t_main	*p, char *str);
+void	get_map_data(t_main *p, char *str);
+
+//hook.c
 int		key_hook(int keycode, void *arg);
-void	*ft_ftoi(void *mlx, char *path);
-void	ft_output(t_main	*p);
-void	check_move(int keycode, t_main *p);
+void	ft_put_pic(t_main *p, char *pic, int n, int m);
+void	ft_output(t_main *p);
+void	exit_con(t_main *p);
+void	ft_output_util(t_main *p, int n, int m, int num);
+
+//main.c
+void	ft_free_vi(int **visited);
+void	ft_free_map(t_main *p);
+int		check_list(t_main *p, int *num);
+
+//map_check.c
+int		valid_char(char c);
+int		*init_array(int *num, int len);
+int		*valid_component(t_main *p, int *num);
+int		com_num_check(t_main *p, int *num);
+int		valid_wall(t_main *p);
+
+//map_util.c
+int		ft_strlen_no_line(const char *s);
+void	valid_path_util(t_main *p, int x, int y, int **visited);
 int		reach_collect(t_main *p, int	**visited);
 int		**check_visit(t_main *p);
-void	ft_output_util(t_main *p, int n, int m, int num);
-void	ft_free_map(t_main *p);
-void	ft_free_vi(int **visited);
-void	ft_putexit(t_main *p, int n, int m);
-void	ft_put_pic(t_main *p, char *pic, int n, int m);
-void	ft_putwater(t_main *p, int n, int m);
+int		valid_path(t_main *p, int	**visited);
+
+//move.c
+void	ft_go_up(t_main *p);
+void	ft_go_down(t_main *p);
+void	ft_go_left(t_main *p);
+void	ft_go_right(t_main *p);
+void	check_move(int keycode, t_main *p);
+
+//put_water.c
 void	ft_putplayer(t_main *p, int n, int m, int num);
+void	ft_putwater_util3(t_main *p, int n, int m);
+void	ft_putwater_util2(t_main *p, int n, int m);
+void	ft_putwater_util(t_main *p, int n, int m);
+void	ft_putwater(t_main *p, int n, int m);
+
+//showwindow.c
+void	ft_putexit(t_main *p, int n, int m);
+int		mlx_close(void *ptr);
+void	*ft_ftoi(void *mlx, char *path);
+void	windowinit(t_main	*p);
 
 #endif
